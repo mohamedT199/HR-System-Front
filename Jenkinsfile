@@ -18,5 +18,10 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+	   sh "git push HEAD:main" 
+        }
+    }
 }
 
