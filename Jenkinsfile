@@ -21,7 +21,7 @@ pipeline {
     post {
         always {
 	   sh "git checkout main"
-	   sh "git push HEAD:main" 
+	   sh "git push origin main" 
         }
     }
 }
