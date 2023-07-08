@@ -15,22 +15,10 @@ pipeline {
         stage('Build Application') {
             steps {
                 script{
-                    buildArtifact(false,"main")
+                    buildArtifact()
                 }
 
             }
-        }
-    }
-    post {
-        failure {
-            echo 'Build Sucess'
-        }
-        success {
-	    script{
-	    	env.VERSIONNPM = sh(returnStdout: true, script: "node -p \"require(\'./package.json\').version\"")
-            	echo "${env.VERSIONNPM}"
-	    	sh "git tag -d ${env.VERSIONNPM}"
-	    }
         }
     }
    
