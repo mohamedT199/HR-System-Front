@@ -18,11 +18,11 @@ export class HrService {
   }
 
   allUsers(){
-    return this.http.get("/hrapi/user/all", {headers: this.addHeaders()});
+    return this.http.get("/api/user/all", {headers: this.addHeaders()});
   }
 
   allRoles(){
-    return this.http.get("/hrapi/rolles/all", {headers: this.addHeaders()});
+    return this.http.get("/api/rolles/all", {headers: this.addHeaders()});
   }
 
   saveUser(name:any, email:any, phone:any, salary:any, role:any){
@@ -33,14 +33,14 @@ export class HrService {
       "salary": salary,
       "rolesset": role
     }
-    return this.http.post("/hrapi/register", body, {headers: this.addHeaders()}).subscribe();
+    return this.http.post("/api/register", body, {headers: this.addHeaders()}).subscribe();
   }
 
   deleteUser(id:any){
-    return this.http.get("/hrapi/user/"+id, {headers: this.addHeaders()});
+    return this.http.get("/api/user/"+id, {headers: this.addHeaders()});
   }
 
   findUser(id:any){
-    return this.http.get("/hrapi/user/edit/"+id,{headers: this.addHeaders()});
+    return this.http.get("/api/user/edit/"+id,{headers: this.addHeaders()});
   }
 }
