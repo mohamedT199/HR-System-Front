@@ -1,6 +1,9 @@
 @Library('jenkins-shared-library')_
 pipeline {
     agent any
+    environment {
+	VERSIONNPM = ""
+    }
     stages {
         stage('Bumb Version') {
             steps {
@@ -23,9 +26,11 @@ pipeline {
             echo 'Build Sucess'
         }
         failure {
-	    version = sh(returnStdout: true, script: 'node -p "require(\'./package.json\').version"')
-            echo '${version}'
-	    sh "git tag -d ${version}"
+	    script{
+	    	env.VERSIONNPM = sh(returnStdout: true, script: 'node -p "require(\'./package.json\').version"')
+            	echo '${env.VERSIONNPM}'
+	    	sh "git tag -d ${env.VERSIONNPM}"
+	    }
         }
     }
    
