@@ -18,12 +18,6 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-	   sh "git checkout main"
-	   sh "git pull -r "
-	   sh "git push origin main" 
-        }
-    }
+   
 }
 
