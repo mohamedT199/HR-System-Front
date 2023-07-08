@@ -8,7 +8,7 @@ pipeline {
         stage('Bumb Version') {
             steps {
                 script{
-                    bumpVersion()
+                    bumpVersion("main")
                 }
             }
         }
