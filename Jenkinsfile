@@ -20,6 +20,15 @@ pipeline {
 
             }
         }
+        stage('Build/Push Application Docker Image') {
+            steps {
+                script{
+                    buildDockerImage("talat345/time-sheet-front")
+                }
+
+            }
+        }
+
     }
    
 }
